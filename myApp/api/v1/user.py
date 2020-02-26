@@ -26,7 +26,7 @@ class User(Resource):
         count, user_list = api.get_obj('user', filters=filters, sort=sort, limit=limit)
 
         for u in user_list:
-            u.pop('passwd')
+            u.pop('password')
 
         if limit:
             return utils.common_resp(1, {
@@ -46,7 +46,7 @@ class User(Resource):
         """
         {
           "name": "name1",
-          "passwd": "passwd",
+          "passwd": "passwd"
         }
         """
         json_data = request.json
@@ -54,18 +54,15 @@ class User(Resource):
 
         if val:
             name = json_data['name']
-            userModel = api.get_model('user')
             if not name:
                 return utils.common_resp(0, "用户名不能为空")
             cnt, judge_name = api.get_obj('user', [f'name="{name}"'])
 
             if cnt:
-                return utils.common_resp(0, f'P13{name}已经存在')
+                return utils.common_resp(0, f'{name}已经存在')
 
             else:
-                encrypt_password = json_data['passwd']
-                password = userModel.decrypt(encrypt_password)
-
+                password = json_data['password']
                 json_data.update(
                     {'created_time': datetime.datetime.now(),
                      'updated_time': datetime.datetime.now(),
@@ -73,8 +70,6 @@ class User(Resource):
                      'password': password
                      }
                 )
-
-                print(json_data)
 
                 ret = api.save_obj('user', json_data)
                 ret.pop('password')

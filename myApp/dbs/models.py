@@ -44,7 +44,7 @@ class ModelDictMixin(object):
 
 class User(DeletedModel, ModelDictMixin):
     """用户表"""
-    __tablename__ = 'test_user'
+    __tablename__ = 'myapp_user'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(length=255))  # 姓名

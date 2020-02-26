@@ -1,8 +1,8 @@
 
 mysql:
-    host: "127.0.0.1"
+    host: "118.25.132.201"
     user: "root"
-    password: "root"
+    password: "123456"
     db:  "dxs"
     db_port: 3306
     pool_recycle: 14400

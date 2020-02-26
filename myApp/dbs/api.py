@@ -1,4 +1,3 @@
-import traceback
 from sqlalchemy import update, insert, delete, select
 from sqlalchemy.sql import and_
 from sqlalchemy import desc, text
@@ -88,7 +87,6 @@ def save_obj(model, data):
     保存数据
     :param model: 模型名称
     :param data: 数据dict
-    :return: 保存的实体
     """
     try:
         sess = get_session()
@@ -98,7 +96,7 @@ def save_obj(model, data):
 
         if model == 'user':
             obj = m(**val_data)
-            obj.set_password(val_data.get('passwd'))
+            obj.set_password(val_data.get('password'))
         else:
             obj = m(**val_data)
         sess.add(obj)
