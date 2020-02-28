@@ -46,7 +46,7 @@ class User(Resource):
         """
         {
           "name": "name1",
-          "passwd": "passwd"
+          "password": "passwd"
         }
         """
         json_data = request.json
