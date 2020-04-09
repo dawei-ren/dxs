@@ -7,7 +7,7 @@ conf_file = os.path.join(BASE_PATH, 'conf/all.yaml')
 
 def load_file(filename):
     with open(filename, 'r') as f:
-        data = yaml.load(f)
+        data = yaml.load(f, Loader=yaml.FullLoader)
     return data
 
 
