@@ -159,3 +159,7 @@ nohup.out
 db.sqlite3
 accounts/migrations/
 core/migrations/
+
+
+# other
+.vscode/

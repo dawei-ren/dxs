@@ -9,10 +9,3 @@ mysql:
 
 
 
-chatmysql:
-    host: ""
-    user: "root"
-    password: ""
-    db:  "chat"
-    db_port: 3306
-    pool_recycle: 14400
