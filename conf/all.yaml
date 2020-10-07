@@ -9,3 +9,11 @@ mysql:
 
 
 
+chatmysql:
+    host: "118.25.132.201"
+    user: "root"
+    password: "Ljyl_89*71"
+    db:  "chat"
+    db_port: 3306
+    # pool_recycle: 14400
+    pool_recycle: 10
