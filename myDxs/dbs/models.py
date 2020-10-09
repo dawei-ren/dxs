@@ -6,6 +6,7 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 """
 数据库
 """
@@ -46,7 +47,7 @@ class ModelDictMixin(object):
 
 class User(DeletedModel, ModelDictMixin):
     """用户表"""
-    __tablename__ = 'myapp_user'
+    __tablename__ = 'dxs_user'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(length=255))  # 姓名
@@ -70,8 +71,7 @@ MODELS = {
     'user': User,
 }
 
-
-@app.cli.command('create_table_myapp', help='初始化数据库表 myapp')
+@app.cli.command('create_table_dxs', help='初始化数据库表 dxs')
 def create_table():
     from myDxs.dbs import engine
     print(Base.metadata.create_all(bind=engine))
@@ -83,7 +83,7 @@ if __name__ == '__main__':
     初始化数据库，创建表
     """
     # print(Base.metadata.drop_all(bind=get_engine()))
-    # from myApp.dbs import engine
+    # from myDxs.dbs import engine
     # print(Base.metadata.create_all(bind=engine))
     # pass
     create_table()
