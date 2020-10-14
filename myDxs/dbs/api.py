@@ -3,10 +3,10 @@ from sqlalchemy.sql import and_
 from sqlalchemy import desc, text
 import sqlalchemy as sa
 
-from myApp.libs.errors import DBError
+from myDxs.libs.errors import DBError
 
-from myApp.dbs.models import MODELS
-from myApp.dbs import Session
+from myDxs.dbs.models import MODELS
+from myDxs.dbs import Session
 
 
 def get_session():

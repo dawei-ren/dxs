@@ -66,9 +66,18 @@ class User(DeletedModel, ModelDictMixin):
         """
         return check_password_hash(self.passwd, password)
 
+class Article(DeletedModel, ModelDictMixin):
+    __tablename__ = 'dxs_article'
+
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    title = Column(String(length=255))  # 文章标题
+    content = Column(String(length=2048))  # 文章标题
+    author = Column(String(length=255))  # 作者
+
 
 MODELS = {
     'user': User,
+    'article': Article
 }
 
 @app.cli.command('create_table_dxs', help='初始化数据库表 dxs')

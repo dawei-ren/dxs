@@ -12,7 +12,7 @@ class Health(Resource):
     def get(self):
         """
         请求示例
-        /myapp/v1/test
+        http://localhost:8000/dxs/api/v1/health
 
         :return:
         """

@@ -8,20 +8,10 @@ mysql:
     pool_recycle: 14400
 
 
-
-chatmysql:
-    host: "118.25.132.201"
-    user: "root"
-    password: "Ljyl_89*71"
-    db:  "chat"
-    db_port: 3306
-    # pool_recycle: 14400
-    pool_recycle: 10
-
 dxs:
     host: "118.25.132.201"
     user: "root"
-    password: "Ljyl_89*71"
+    password: "12345678"
     db:  "dxs"
     db_port: 3306
     # pool_recycle: 14400
