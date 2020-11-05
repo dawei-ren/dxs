@@ -11,7 +11,7 @@ mysql:
 dxs:
     host: "118.25.132.201"
     user: "root"
-    password: "12345678"
+    password: "123456"
     db:  "dxs"
     db_port: 3306
     # pool_recycle: 14400
