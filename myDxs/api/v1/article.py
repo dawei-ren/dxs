@@ -1,6 +1,6 @@
 from flask_restful import Resource
 from flask import request
-from myDxs.libs import utils
+from myDxs.libs import utils, token
 from myDxs.dbs import api
 import datetime
 
@@ -56,13 +56,14 @@ class Article(Resource):
                 "results": article_list,
                 "totalCount": count
             })
-
+            
+    @token.login_required
     def post(self):
         """
         {
           "title": "归园田居",
           "author": "陶渊明",
-          "content": "种豆南山下，草盛豆苗稀。 \n晨兴理荒秽，带月荷锄归。 \n道狭草木长，夕露沾我衣。 \n衣沾不足惜，但使愿无违",
+          "content": "种豆南山下，草盛豆苗稀。 晨兴理荒秽，带月荷锄归。 道狭草木长，夕露沾我衣。 衣沾不足惜，但使愿无违",
         }
         """
         json_data = request.json
@@ -95,3 +96,7 @@ class Article(Resource):
 
         else:
             return utils.common_resp(0, msg)
+
+    # def delete(self):
+    #     #
+    #     return utils.common_resp(0, "aaa")

@@ -330,5 +330,37 @@ def get_obj(model, filters=None, sort=None, limit=None, all=False):
         sess.close()
 
 
+def get_obj_obj(model, filters=None, all=False):
+    """
+    按条件查询数据
+    :param model: 模型名称
+    :param filters: 查询条件列表
+    :return: 记录数，obj列表
+    """
+    try:
+        sess = get_session()
+        m = get_model(model)
+        query = sess.query(m)
+        if filters:
+            for f in filters:
+                query = query.filter(text(f))
+
+        if all == False:
+            if 'deleted' in m.column_names():
+                query = query.filter(text('deleted=0'))
+        totalCount = query.count()
+        if totalCount:
+            data = [x for x in query.all()]
+        else:
+            data = []
+        return totalCount, data
+    except Exception as e:
+        raise DBError()
+    finally:
+        sess.close()
+
+
+
+
 if __name__ == '__main__':
     pass

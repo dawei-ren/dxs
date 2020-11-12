@@ -1,7 +1,7 @@
 from flask_restful import Resource
 from flask import request
-from myApp.libs import utils
-from myApp.dbs import api
+from myDxs.libs import utils
+from myDxs.dbs import api
 import datetime
 
 
@@ -12,9 +12,9 @@ class User(Resource):
     def get(self):
         """
         请求示例
-        /myapp/v1/user?name=a&page=1&pageSize=1&sortby=name&order=desc
-
-        :return:
+        
+        获取全部用户
+        http://localhost:8000/dxs/api/v1/user
         """
         query = request.args
 

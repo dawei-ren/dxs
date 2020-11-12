@@ -2,7 +2,7 @@
 mysql:
     host: "118.25.132.201"
     user: "root"
-    password: "123456"
+    password: "Ljyl_89*71"
     db:  "dxs"
     db_port: 3306
     pool_recycle: 14400
@@ -11,8 +11,10 @@ mysql:
 dxs:
     host: "118.25.132.201"
     user: "root"
-    password: "123456"
+    password: "Ljyl_89*71"
     db:  "dxs"
     db_port: 3306
     # pool_recycle: 14400
     pool_recycle: 10
+
+SECRET_KEY: secret_key

@@ -64,7 +64,7 @@ class User(DeletedModel, ModelDictMixin):
         """
         验证密码，如果返回为True，则进行下一步操作
         """
-        return check_password_hash(self.passwd, password)
+        return check_password_hash(self.password, password)
 
 class Article(DeletedModel, ModelDictMixin):
     __tablename__ = 'dxs_article'
