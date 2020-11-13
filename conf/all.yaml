@@ -18,3 +18,4 @@ dxs:
     pool_recycle: 10
 
 SECRET_KEY: secret_key
+TOKEN_VALID: 360000

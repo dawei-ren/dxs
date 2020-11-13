@@ -29,11 +29,13 @@ class Login(Resource):
         cnt, user = api.get_obj_obj('user', [f'name="{name}"'])
 
         user_data = user[0]
-        print(user_data)
         if not cnt:
           return utils.common_resp(0, "用户名不存在")
         if not user_data.check_password(password):
           return utils.common_resp(0, "密码错误")
         user_token =  token.create_token(user_data.id)
-        res = {"token": user_token}
+        res = {
+            "token": user_token,
+            "username": user_data.name
+          }
         return utils.common_resp(1, res)
